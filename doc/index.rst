@@ -17,6 +17,7 @@ Contents
    README
    intro
    vimage
+   batch
    base
    error
    enums
