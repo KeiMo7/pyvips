@@ -17,6 +17,7 @@ from .vsource import Source as Source
 from .vsourcecustom import SourceCustom as SourceCustom
 from .vtarget import Target as Target
 from .vtargetcustom import TargetCustom as TargetCustom
+from .cache import CacheKey as CacheKey, CacheStats as CacheStats, RenderCache as RenderCache
 
 _MetadataValue = bool | int | float | str | Image | list[int] | list[float] | list[Image]
 _MetadataDict = dict[str, _MetadataValue]

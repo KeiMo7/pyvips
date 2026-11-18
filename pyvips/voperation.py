@@ -20,6 +20,15 @@ _MODIFY = 128
 _OPERATION_NOCACHE = 4
 _OPERATION_DEPRECATED = 8
 
+# RenderCache installs an observer here. The observer is always optional and
+# must never be able to change the result of an operation.
+_operation_observer = None
+
+
+def _set_operation_observer(observer):
+    global _operation_observer
+    _operation_observer = observer
+
 
 class Introspect(object):
     """Build introspection data for operations.
@@ -230,6 +239,14 @@ class Operation(pyvips.VipsObject):
         # logger.debug('VipsOperation.call: args = %s, kwargs =%s',
         #              args, kwargs)
 
+        observer = _operation_observer
+        pending = None
+        if observer is not None:
+            try:
+                pending = observer.before_call(operation_name, args, kwargs)
+            except Exception:
+                logger.exception('render cache observer failed')
+
         intro = Introspect.get(operation_name)
 
         if len(intro.required_input) != len(args):
@@ -334,6 +351,12 @@ class Operation(pyvips.VipsObject):
             result = result[0]
 
         logger.debug('VipsOperation.call: result = %s', result)
+
+        if observer is not None and pending is not None:
+            try:
+                observer.after_call(pending, result)
+            except Exception:
+                logger.exception('render cache observer failed')
 
         return result
 

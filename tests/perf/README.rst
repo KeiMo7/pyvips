@@ -30,3 +30,12 @@ Run
 
     # command to test if a difference is significant
     $ python3 -m pyperf compare_to operation-call2.json operation-call.json --table
+
+RenderCache benchmark
+---------------------
+
+This compares the same repeated lazy resize/invert pipeline with caching off
+and on. It counts source decode reads with ``VipsSourceCustom`` and reports
+wall-clock time, hit statistics and a result checksum::
+
+    $ python3 render-cache.py -n 20 -r 3

@@ -200,5 +200,6 @@ from .vtargetcustom import *
 from .voperation import *
 from .vimage import *
 from .vregion import *
+from .cache import *
 
 __all__ = ['API_mode']

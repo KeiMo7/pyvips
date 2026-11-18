@@ -67,6 +67,36 @@ which gives some more background.
 
 https://www.libvips.org/API/current/How-it-opens-files.html
 
+Result cache
+------------
+
+``RenderCache`` can cache the final result of a complete, lazy pipeline. It is
+disabled by default and is provided as a separate entry point:
+
+.. code-block:: python
+
+    import pyvips
+
+    cache = pyvips.RenderCache(
+        '/var/cache/image-renders',
+        enabled=True,
+        max_bytes=2 * 1024 * 1024 * 1024,
+        max_age=7 * 24 * 60 * 60,
+    )
+
+    def render_detail(image):
+        return image.resize(0.5).composite(watermark, 'over', x=[32], y=[32])
+
+    image = cache.render(source_image, render_detail)
+
+The cache key uses source content (not its filename) plus the complete
+operation graph, including operation names and canonicalised arguments.
+Equivalent spellings such as ``1`` / ``1.0``, lists / tuples and explicit
+default arguments share an entry. Cache entries record the source fingerprint,
+chain digest and operation summary. ``cache.stats`` reports full hits, partial
+hits, misses and evictions, and ``reset_stats()`` starts a fresh measurement
+period.
+
 Binary installation
 -------------------
 
