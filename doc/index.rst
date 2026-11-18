@@ -19,6 +19,7 @@ Contents
    vimage
    base
    error
+   batch
    enums
    vconnection
    vsource

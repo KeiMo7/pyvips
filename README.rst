@@ -187,6 +187,32 @@ sharpens, and then writes the image back to the filesystem again:
     image = image.conv(mask, precision='integer')
     image.write_to_file('x.jpg')
 
+Batch processing
+----------------
+
+The opt-in batch API keeps one bad input from aborting the whole run.  It
+records a per-item result, retries transient failures, and checkpoints
+successful work so a later run can skip it:
+
+.. code-block:: python
+
+    summary = pyvips.process_batch(
+        'inputs.json',
+        'resize',
+        output_dir='converted',
+        output_suffix='.jpg',
+        operation_args=(0.5,),
+        retries=2,
+        retry_interval=0.5,
+        state_dir='batch-state',
+    )
+
+    for item in summary.results:
+        print(item.filename, item.status, item.duration_seconds)
+
+See ``doc/batch.rst`` for manifest formats, checkpoint fields, resume
+behaviour, and both JSON and text summary formats.
+
 
 Notes
 -----

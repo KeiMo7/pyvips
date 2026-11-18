@@ -199,6 +199,7 @@ from .vtarget import *
 from .vtargetcustom import *
 from .voperation import *
 from .vimage import *
+from .batch import *
 from .vregion import *
 
 __all__ = ['API_mode']

@@ -9,6 +9,7 @@ from .gobject import GObject as GObject
 from .gvalue import GValue as GValue
 from .vconnection import Connection as Connection
 from .vimage import Image as Image
+from .batch import BatchItem as BatchItem, BatchItemResult as BatchItemResult, BatchProcessor as BatchProcessor, BatchResultStream as BatchResultStream, BatchStageError as BatchStageError, BatchSummary as BatchSummary, batch_process as batch_process, process_batch as process_batch, run_batch as run_batch
 from .vinterpolate import Interpolate as Interpolate
 from .vobject import VipsObject as VipsObject
 from .voperation import Introspect as Introspect, Operation as Operation, cache_set_max as cache_set_max, cache_set_max_mem as cache_set_max_mem, cache_set_max_files as cache_set_max_files, cache_set_trace as cache_set_trace, cache_get_max as cache_get_max, cache_get_size as cache_get_size, cache_get_max_mem as cache_get_max_mem, cache_get_max_files as cache_get_max_files, block_untrusted_set as block_untrusted_set, operation_block_set as operation_block_set
