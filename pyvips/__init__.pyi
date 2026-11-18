@@ -12,6 +12,7 @@ from .vimage import Image as Image
 from .vinterpolate import Interpolate as Interpolate
 from .vobject import VipsObject as VipsObject
 from .voperation import Introspect as Introspect, Operation as Operation, cache_set_max as cache_set_max, cache_set_max_mem as cache_set_max_mem, cache_set_max_files as cache_set_max_files, cache_set_trace as cache_set_trace, cache_get_max as cache_get_max, cache_get_size as cache_get_size, cache_get_max_mem as cache_get_max_mem, cache_get_max_files as cache_get_max_files, block_untrusted_set as block_untrusted_set, operation_block_set as operation_block_set
+from .batch import Batch as Batch, BatchTask as BatchTask, ConcurrencyController as ConcurrencyController, TaskCancelled as TaskCancelled, TaskTimedOut as TaskTimedOut, batch_concurrency_snapshot as batch_concurrency_snapshot, batch_concurrency_timeline as batch_concurrency_timeline, default_concurrency as default_concurrency, effective_cpu_count as effective_cpu_count, export_batch_concurrency_timeline as export_batch_concurrency_timeline, get_batch_concurrency as get_batch_concurrency, get_concurrency_controller as get_concurrency_controller, reset_batch_concurrency as reset_batch_concurrency, run_batch as run_batch, set_batch_concurrency as set_batch_concurrency
 from .vregion import Region as Region
 from .vsource import Source as Source
 from .vsourcecustom import SourceCustom as SourceCustom

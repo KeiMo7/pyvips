@@ -621,6 +621,10 @@ def operation_block_set(name, state):
 
 def concurrency_set(concurrency):
     """Set the maxium threadpool size."""
+    if isinstance(concurrency, bool) or not isinstance(concurrency, int):
+        raise ValueError('concurrency must be a positive integer')
+    if concurrency <= 0:
+        raise ValueError('concurrency must be a positive integer')
     vips_lib.vips_concurrency_set(concurrency)
 
 

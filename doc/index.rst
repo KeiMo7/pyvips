@@ -30,6 +30,7 @@ Contents
    gobject
    voperation
    vobject
+   batch
 
 Indicies
 --------
