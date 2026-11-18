@@ -1,6 +1,8 @@
 ## master
 
 - new_from_array() propagate interpretation into array interfaces [BSAIPF]
+- add opt-in batch colour conversion with per-image assumptions, deterministic
+  fallback decisions and resumable JSONL conclusion records
 
 ## Version 3.2.0 (released 29 Aug 2026)
 

@@ -17,6 +17,7 @@ Contents
    README
    intro
    vimage
+   color_batch
    base
    error
    enums

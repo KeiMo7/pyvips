@@ -17,6 +17,7 @@ from .vsource import Source as Source
 from .vsourcecustom import SourceCustom as SourceCustom
 from .vtarget import Target as Target
 from .vtargetcustom import TargetCustom as TargetCustom
+from .color_batch import BatchItem as BatchItem, ColorBatchDisabledError as ColorBatchDisabledError, ColorBatchError as ColorBatchError, ColorBatchLedgerError as ColorBatchLedgerError, ColorBatchResult as ColorBatchResult, ProfileInspection as ProfileInspection, color_space_batch as color_space_batch, colourspace_batch as colourspace_batch, convert_batch as convert_batch, inspect_icc_profile as inspect_icc_profile, process_batch as process_batch
 
 _MetadataValue = bool | int | float | str | Image | list[int] | list[float] | list[Image]
 _MetadataDict = dict[str, _MetadataValue]
